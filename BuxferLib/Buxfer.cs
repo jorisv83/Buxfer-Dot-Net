@@ -59,10 +59,18 @@ namespace BuxferLib
             return accounts;
         }
 
-        public void GetTransactions(string accountId)
+        public List<Transaction> GetTransactions(string accountId, string page = "1")
         {
-            string accountResponse = GetResponse("transactions.xml?token=" + this.loginToken + "&accountId=" + accountId );
-
+            List<Transaction> transactions = new List<Transaction>();
+            string transactionResponse = GetResponse("transactions.xml?token=" + this.loginToken + "&accountId=" + accountId + "&page=" + page );
+            XmlDocument xmlDoc = TranslateStringToXmlDoc(transactionResponse);
+            foreach (XmlElement e in xmlDoc.SelectNodes("/response/transactions/transaction"))
+            {
+                transactions.Add(
+                    XMLSerializer.DeserializeObject<Transaction>(string.Concat("<transaction>", e.InnerXml, "</transaction>"))
+                    );
+            }
+            return transactions;
         }
 
         ~Buxfer()
