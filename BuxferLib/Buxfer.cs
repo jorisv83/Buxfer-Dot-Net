@@ -13,6 +13,12 @@ namespace BuxferLib
         private string baseUrl = "https://www.buxfer.com/api/";
         private WebClient serviceClient;
         public List<Message> Messages = new List<Message>();
+        private bool logonOk = false;
+
+        public bool LogonOk
+        {
+            get { return logonOk; }
+        }
 
         /// <summary>
         /// Create the buxfer interface
@@ -29,6 +35,7 @@ namespace BuxferLib
                 Login login = XMLSerializer.DeserializeObject<Login>(loginResponse);
                 if (login.Status.ToUpper() == "OK")
                 {
+                    this.logonOk = true;
                     this.loginToken = login.Token;
                     Messages.Add(new Message() { Date = DateTime.Now, Text = "Login SUCCESS for user: " + username });
                 }
