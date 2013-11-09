@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuxferLib", "BuxferLib\BuxferLib.csproj", "{7A7DB901-9195-4304-83CE-109E4D526A9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuxferTester", "BuxferTester\BuxferTester.csproj", "{06FA6F0D-3781-4E36-9E08-2B6326D61769}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuxferForm", "BuxferForm\BuxferForm.csproj", "{F705C91C-4DE9-4D8F-A078-122632612680}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A7DB901-9195-4304-83CE-109E4D526A9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A7DB901-9195-4304-83CE-109E4D526A9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A7DB901-9195-4304-83CE-109E4D526A9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A7DB901-9195-4304-83CE-109E4D526A9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06FA6F0D-3781-4E36-9E08-2B6326D61769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06FA6F0D-3781-4E36-9E08-2B6326D61769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06FA6F0D-3781-4E36-9E08-2B6326D61769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06FA6F0D-3781-4E36-9E08-2B6326D61769}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F705C91C-4DE9-4D8F-A078-122632612680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F705C91C-4DE9-4D8F-A078-122632612680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F705C91C-4DE9-4D8F-A078-122632612680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F705C91C-4DE9-4D8F-A078-122632612680}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
