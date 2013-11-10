@@ -67,7 +67,7 @@ namespace BuxferLib
                     this.messages.Add(new Message(Message.Category.Error, DateTime.Now, "Login FAILED for user: " + userName + "\nStatus was: " + login.Status));
                 }
             }
-            catch (Exception ex)
+            catch (WebException ex)
             {
                 this.loginToken = string.Empty;
                 this.messages.Add(new Message(Message.Category.Error, DateTime.Now, "Login FAILED for user: " + userName + "\nException: " + ex.Message));

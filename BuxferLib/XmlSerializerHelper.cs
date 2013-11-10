@@ -16,7 +16,7 @@ namespace BuxferLib
     /// Class that wraps XML serialization functions into 2 methods
     /// </summary>
     public static class XmlSerializerHelper
-    {        
+    {
         /// <summary>
         /// Serialize an object into an XML string
         /// </summary>
@@ -25,17 +25,11 @@ namespace BuxferLib
         /// <param name="xmlWriter">A reference to an XML writer instance</param>
         public static void SerializeObject<T>(T obj, ref XmlWriter xmlWriter)
         {
-            try
-            {
-                XmlSerializer xs = new XmlSerializer(typeof(T));
-                XmlSerializerNamespaces xmlSerializerNamespaces = new XmlSerializerNamespaces();
+            XmlSerializer xs = new XmlSerializer(typeof(T));
+            XmlSerializerNamespaces xmlSerializerNamespaces = new XmlSerializerNamespaces();
 
-                xmlSerializerNamespaces.Add(string.Empty, string.Empty);
-                xs.Serialize(xmlWriter, obj, xmlSerializerNamespaces);
-            }
-            catch
-            {
-            }
+            xmlSerializerNamespaces.Add(string.Empty, string.Empty);
+            xs.Serialize(xmlWriter, obj, xmlSerializerNamespaces);
         }
 
         /// <summary>
@@ -46,21 +40,14 @@ namespace BuxferLib
         /// <returns>A string containing the XML representation of the object</returns>
         public static string SerializeObject<T>(T obj)
         {
-            try
-            {
-                string xmlString = null;
-                MemoryStream memoryStream = new MemoryStream();
-                XmlSerializer xs = new XmlSerializer(typeof(T));
-                XmlTextWriter xmlTextWriter = new XmlTextWriter(memoryStream, Encoding.UTF8);
-                xs.Serialize(xmlTextWriter, obj);
-                memoryStream = (MemoryStream)xmlTextWriter.BaseStream;
-                xmlString = UTF8ByteArrayToString(memoryStream.ToArray());
-                return xmlString;
-            }
-            catch
-            {
-                return string.Empty;
-            }
+            string xmlString = string.Empty;
+            MemoryStream memoryStream = new MemoryStream();
+            XmlSerializer xs = new XmlSerializer(typeof(T));
+            XmlTextWriter xmlTextWriter = new XmlTextWriter(memoryStream, Encoding.UTF8);
+            xs.Serialize(xmlTextWriter, obj);
+            memoryStream = (MemoryStream)xmlTextWriter.BaseStream;
+            xmlString = UTF8ByteArrayToString(memoryStream.ToArray());
+            return xmlString;
         }
 
         /// <summary>
