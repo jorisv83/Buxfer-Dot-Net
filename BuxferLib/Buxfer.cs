@@ -107,7 +107,7 @@ namespace BuxferLib
         {
             Collection<Account> accounts = new Collection<Account>();
             string accountResponse = this.GetResponse("accounts.xml?token=" + this.loginToken);
-            XmlDocument xmlDoc = this.TranslateStringToXmlDoc(accountResponse);
+            XmlDocument xmlDoc = TranslateStringToXmlDoc(accountResponse);
             foreach (XmlElement e in xmlDoc.SelectNodes("/response/accounts/account"))
             {
                 accounts.Add(XmlSerializerHelper.DeserializeObject<Account>(string.Concat("<account>", e.InnerXml, "</account>")));
@@ -126,7 +126,7 @@ namespace BuxferLib
         {
             Collection<Transaction> transactions = new Collection<Transaction>();
             string transactionResponse = this.GetResponse("transactions.xml?token=" + this.loginToken + "&accountId=" + accountId + "&page=" + page);
-            XmlDocument xmlDoc = this.TranslateStringToXmlDoc(transactionResponse);
+            XmlDocument xmlDoc = TranslateStringToXmlDoc(transactionResponse);
             foreach (XmlElement e in xmlDoc.SelectNodes("/response/transactions/transaction"))
             {
                 transactions.Add(XmlSerializerHelper.DeserializeObject<Transaction>(string.Concat("<transaction>", e.InnerXml, "</transaction>")));
@@ -162,6 +162,18 @@ namespace BuxferLib
         }
 
         /// <summary>
+        /// Convert an string containing an xml document to an xml document type
+        /// </summary>
+        /// <param name="xml">The string containing xml</param>
+        /// <returns>An xml document</returns>
+        private static XmlDocument TranslateStringToXmlDoc(string xml)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(xml);
+            return xmlDoc;
+        }
+
+        /// <summary>
         /// Use the web client to get a response from the base url combined with the url part parameter
         /// </summary>
         /// <param name="urlPart">The part to add to the base url for this request</param>
@@ -182,18 +194,6 @@ namespace BuxferLib
         {
             this.serviceClient.Headers["Content-type"] = "text/xml";
             return this.serviceClient.UploadString(new Uri(string.Concat(this.baseUrl, urlPart)), "POST", data);
-        }
-
-        /// <summary>
-        /// Convert an string containing an xml document to an xml document type
-        /// </summary>
-        /// <param name="xml">The string containing xml</param>
-        /// <returns>An xml document</returns>
-        private XmlDocument TranslateStringToXmlDoc(string xml)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(xml);
-            return xmlDoc;
         }
     }
 }
