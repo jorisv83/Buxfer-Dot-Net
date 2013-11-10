@@ -7,9 +7,8 @@
 namespace BuxferLib
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Net;
-    using System.Runtime.InteropServices;
     using System.Xml;
     using BuxferLib.BuxferObjects;
 
@@ -36,7 +35,7 @@ namespace BuxferLib
         /// <summary>
         /// Error or other messages list
         /// </summary>
-        private List<Message> messages = new List<Message>();
+        private Collection<Message> messages = new Collection<Message>();
 
         /// <summary>
         /// Indicates if the logon has been successful
@@ -95,7 +94,7 @@ namespace BuxferLib
         /// <summary>
         /// Gets the messages list containing errors and other messages
         /// </summary>
-        public List<Message> Messages
+        public Collection<Message> Messages
         {
             get { return this.messages; }
         }
@@ -104,9 +103,9 @@ namespace BuxferLib
         /// Return a list of all accounts
         /// </summary>
         /// <returns>List of accounts</returns>
-        public List<Account> GetAllAccounts()
+        public Collection<Account> GetAllAccounts()
         {
-            List<Account> accounts = new List<Account>();
+            Collection<Account> accounts = new Collection<Account>();
             string accountResponse = this.GetResponse("accounts.xml?token=" + this.loginToken);
             XmlDocument xmlDoc = this.TranslateStringToXmlDoc(accountResponse);
             foreach (XmlElement e in xmlDoc.SelectNodes("/response/accounts/account"))
@@ -123,9 +122,9 @@ namespace BuxferLib
         /// <param name="accountId">The account to retrieve the transactions for</param>
         /// <param name="page">The page number, only 25 transactions per page are returned</param>
         /// <returns>A list of transactions</returns>
-        public List<Transaction> GetTransactions(string accountId, string page = "1")
+        public Collection<Transaction> GetTransactions(string accountId, string page = "1")
         {
-            List<Transaction> transactions = new List<Transaction>();
+            Collection<Transaction> transactions = new Collection<Transaction>();
             string transactionResponse = this.GetResponse("transactions.xml?token=" + this.loginToken + "&accountId=" + accountId + "&page=" + page);
             XmlDocument xmlDoc = this.TranslateStringToXmlDoc(transactionResponse);
             foreach (XmlElement e in xmlDoc.SelectNodes("/response/transactions/transaction"))
