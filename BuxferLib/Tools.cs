@@ -25,9 +25,9 @@ namespace BuxferLib
         }
 
         /// <summary>
-        /// Retrieves a new fr-FR culture info object
+        /// Retrieves a new french culture info object
         /// </summary>
-        /// <returns>A new fr-FR culture info instance</returns>
+        /// <returns>A new french culture info instance</returns>
         public static CultureInfo RetrieveCultureInfoFrench()
         {
             return new CultureInfo("fr-FR", true);

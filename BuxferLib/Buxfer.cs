@@ -55,7 +55,7 @@ namespace BuxferLib
 
                 string loginResponse = this.GetResponse(string.Concat("login.xml?userid=", username, "&password=", password));
                 Logon login = XmlSerializerHelper.DeserializeObject<Logon>(loginResponse);
-                if (login.Status.ToUpper() == "OK")
+                if (login.Status.ToUpper(Tools.RetrieveCultureInfoFrench()) == "OK")
                 {
                     this.logonOk = true;
                     this.loginToken = login.Token;
