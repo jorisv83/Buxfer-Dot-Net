@@ -33,7 +33,7 @@ namespace BuxferLib
         /// <summary>
         /// The type of this transaction (ex. income, expense, ...)
         /// </summary>
-        private string type;
+        private string transactionType;
 
         /// <summary>
         /// The amount of this transaction
@@ -96,10 +96,10 @@ namespace BuxferLib
         /// Gets or sets the type of this transaction (ex. income, expense, ...)
         /// </summary>
         [XmlElement("type")]
-        public string Type
+        public string TransactionType
         {
-            get { return this.type; }
-            set { this.type = Tools.CleanField(value); }
+            get { return this.transactionType; }
+            set { this.transactionType = Tools.CleanField(value); }
         }
 
         /// <summary>

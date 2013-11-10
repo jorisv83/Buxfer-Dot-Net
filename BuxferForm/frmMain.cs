@@ -19,7 +19,7 @@ namespace BuxferForm
         /// <summary>
         /// The instance of the logon form, used only to close after we close the main form
         /// </summary>
-        private FrmLogon logonForm;
+        private FrmLogOn logOnForm;
 
         /// <summary>
         /// Private variable to store our main Buxfer instance
@@ -29,19 +29,19 @@ namespace BuxferForm
         /// <summary>
         /// Initializes a new instance of the <see cref="FrmMain" /> class
         /// </summary>
-        /// <param name="logonForm">The logon form</param>
+        /// <param name="logOnForm">The logon form</param>
         /// <param name="buxfer">The Buxfer instance</param>
-        public FrmMain(FrmLogon logonForm, Buxfer buxfer)
+        public FrmMain(FrmLogOn logOnForm, Buxfer buxfer)
         {
             this.InitializeComponent();
-            this.logonForm = logonForm;
+            this.logOnForm = logOnForm;
             this.buxfer = buxfer;
         }
 
         /// <summary>
         /// Form is loaded
         /// </summary>
-        /// <param name="sender">THe object that fired the event</param>
+        /// <param name="sender">The object that fired the event</param>
         /// <param name="e">Event arguments</param>
         private void FrmMain_Load(object sender, EventArgs e)
         {
@@ -51,11 +51,11 @@ namespace BuxferForm
         /// <summary>
         /// Closing event of the main form
         /// </summary>
-        /// <param name="sender">THe object that fired the event</param>
+        /// <param name="sender">The object that fired the event</param>
         /// <param name="e">Event arguments</param>
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.logonForm.Close();
+            this.logOnForm.Close();
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace BuxferForm
         /// <summary>
         /// Event when an new account is selected from the drop down list
         /// </summary>
-        /// <param name="sender">THe object that fired the event</param>
+        /// <param name="sender">The object that fired the event</param>
         /// <param name="e">Event arguments</param>
         private void CbAccounts_SelectedIndexChanged(object sender, EventArgs e)
         {

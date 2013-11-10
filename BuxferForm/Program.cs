@@ -3,10 +3,12 @@
 //     Copyright (c) Jorisv83. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
+using System;
+
+[assembly: CLSCompliant(true)]
 
 namespace BuxferForm
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -25,7 +27,7 @@ namespace BuxferForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogon());
+            Application.Run(new FrmLogOn());
         }
     }
 }

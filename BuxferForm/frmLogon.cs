@@ -13,7 +13,7 @@ namespace BuxferForm
     /// <summary>
     /// Windows form to allow the user to logon to Buxfer
     /// </summary>
-    public partial class FrmLogon : Form
+    public partial class FrmLogOn : Form
     {
         /// <summary>
         /// Private variable to store our main Buxfer instance
@@ -21,9 +21,9 @@ namespace BuxferForm
         private Buxfer buxfer;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FrmLogon" /> class
+        /// Initializes a new instance of the <see cref="FrmLogOn" /> class
         /// </summary>
-        public FrmLogon()
+        public FrmLogOn()
         {
             this.InitializeComponent();
         }
@@ -31,11 +31,11 @@ namespace BuxferForm
         /// <summary>
         /// Form is loaded
         /// </summary>
-        /// <param name="sender">THe object that fired the event</param>
+        /// <param name="sender">The object that fired the event</param>
         /// <param name="e">Event arguments</param>
-        private void FrmLogon_Load(object sender, EventArgs e)
+        private void FrmLogOn_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.username != string.Empty)
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.username))
             {
                 this.txtUsername.Text = Properties.Settings.Default.username;
                 this.txtPassword.Text = Properties.Settings.Default.password;
@@ -46,7 +46,7 @@ namespace BuxferForm
         /// <summary>
         /// Button logon is clicked
         /// </summary>
-        /// <param name="sender">THe object that fired the event</param>
+        /// <param name="sender">The object that fired the event</param>
         /// <param name="e">Event arguments</param>
         private void BtnLogOn_Click(object sender, EventArgs e)
         {
@@ -83,7 +83,7 @@ namespace BuxferForm
                         message += this.buxfer.Messages[this.buxfer.Messages.Count - 1].Text;
                     }
 
-                    MessageBox.Show(message, "Logon", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(message, "Logon", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0);
                 }
             }
             else
@@ -93,16 +93,16 @@ namespace BuxferForm
                 message += Environment.NewLine;
                 message += "Please provide a username and password";
 
-                MessageBox.Show(message, "Logon", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message, "Logon", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0);
             }
         }
 
         /// <summary>
         /// Form logon is closing
         /// </summary>
-        /// <param name="sender">THe object that fired the event</param>
+        /// <param name="sender">The object that fired the event</param>
         /// <param name="e">Event arguments</param>
-        private void FrmLogon_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmLogOn_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!chkRememberMe.Checked)
             {

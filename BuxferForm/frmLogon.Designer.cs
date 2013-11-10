@@ -1,6 +1,6 @@
 ﻿namespace BuxferForm
 {
-    partial class FrmLogon
+    partial class FrmLogOn
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogon));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogOn));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkRememberMe = new System.Windows.Forms.CheckBox();
             this.btnLogOn = new System.Windows.Forms.Button();
@@ -114,7 +114,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
-            // FrmLogon
+            // FrmLogOn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,11 +124,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmLogon";
+            this.Name = "FrmLogOn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login to Buxfer";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogon_FormClosing);
-            this.Load += new System.EventHandler(this.FrmLogon_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogOn_FormClosing);
+            this.Load += new System.EventHandler(this.FrmLogOn_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

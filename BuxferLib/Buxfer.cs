@@ -3,10 +3,12 @@
 //     Copyright (c) Jorisv83. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
+using System;
+
+[assembly: CLSCompliant(true)]
 
 namespace BuxferLib
 {
-    using System;
     using System.Collections.ObjectModel;
     using System.Net;
     using System.Xml;
@@ -58,18 +60,18 @@ namespace BuxferLib
                 {
                     this.logOnOk = true;
                     this.loginToken = login.Token;
-                    this.messages.Add(new Message(Message.Category.Info, DateTime.Now, "Login SUCCESS for user: " + userName));
+                    this.messages.Add(new Message(MessageCategory.Info, DateTime.Now, "Login SUCCESS for user: " + userName));
                 }
                 else
                 {
                     this.loginToken = string.Empty;
-                    this.messages.Add(new Message(Message.Category.Error, DateTime.Now, "Login FAILED for user: " + userName + "\nStatus was: " + login.Status));
+                    this.messages.Add(new Message(MessageCategory.Error, DateTime.Now, "Login FAILED for user: " + userName + "\nStatus was: " + login.Status));
                 }
             }
             catch (WebException ex)
             {
                 this.loginToken = string.Empty;
-                this.messages.Add(new Message(Message.Category.Error, DateTime.Now, "Login FAILED for user: " + userName + "\nException: " + ex.Message));
+                this.messages.Add(new Message(MessageCategory.Error, DateTime.Now, "Login FAILED for user: " + userName + "\nException: " + ex.Message));
             }
         }
 
