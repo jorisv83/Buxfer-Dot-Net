@@ -10,7 +10,6 @@ namespace BuxferForm
     using System.Collections.ObjectModel;
     using System.Windows.Forms;
     using BuxferLib;
-    using BuxferLib.BuxferObjects;
 
     /// <summary>
     /// The main form for this application

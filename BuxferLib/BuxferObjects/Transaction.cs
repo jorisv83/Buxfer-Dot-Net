@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace BuxferLib.BuxferObjects
+namespace BuxferLib
 {
     using System.Globalization;
     using System.Xml.Serialization;

@@ -10,7 +10,6 @@ namespace BuxferLib
     using System.Collections.ObjectModel;
     using System.Net;
     using System.Xml;
-    using BuxferLib.BuxferObjects;
 
     /// <summary>
     /// Main class to govern Buxfer functions
