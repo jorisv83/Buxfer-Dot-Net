@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="BuxferObjects\Account.cs" />
     <Compile Include="Buxfer.cs" />
-    <Compile Include="BuxferObjects\Login.cs" />
+    <Compile Include="BuxferObjects\Logon.cs" />
     <Compile Include="BuxferObjects\Message.cs" />
     <Compile Include="BuxferObjects\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

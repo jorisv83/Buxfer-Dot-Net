@@ -54,7 +54,7 @@ namespace BuxferLib
                 this.serviceClient = new WebClient();
 
                 string loginResponse = this.GetResponse(string.Concat("login.xml?userid=", username, "&password=", password));
-                Login login = XmlSerializerHelper.DeserializeObject<Login>(loginResponse);
+                Logon login = XmlSerializerHelper.DeserializeObject<Logon>(loginResponse);
                 if (login.Status.ToUpper() == "OK")
                 {
                     this.logonOk = true;
