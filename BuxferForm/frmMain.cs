@@ -7,13 +7,7 @@
 namespace BuxferForm
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Collections.ObjectModel;
     using System.Windows.Forms;
     using BuxferLib;
     using BuxferLib.BuxferObjects;
@@ -70,7 +64,7 @@ namespace BuxferForm
         /// </summary>
         private void RefreshAll()
         {
-            List<Account> accounts = this.buxfer.GetAllAccounts();
+            Collection<Account> accounts = this.buxfer.GetAllAccounts();
             this.cbAccounts.DataSource = accounts;
             this.cbAccounts.DisplayMember = "Name";
             this.cbAccounts.ValueMember = "Id";
@@ -87,7 +81,7 @@ namespace BuxferForm
         /// <param name="accountId">The account to look up the transactions for</param>
         private void RefreshGrid(string accountId)
         {
-            List<Transaction> transactions = this.buxfer.GetTransactions(accountId);
+            Collection<Transaction> transactions = this.buxfer.GetTransactions(accountId);
             this.dgvTransactions.DataSource = transactions;
         }
 
