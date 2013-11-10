@@ -6,6 +6,7 @@
 
 namespace BuxferLib.BuxferObjects
 {
+    using System.Globalization;
     using System.Xml.Serialization;
 
     /// <summary>
@@ -108,7 +109,7 @@ namespace BuxferLib.BuxferObjects
         public double Amount
         {
             get { return this.amount; }
-            set { this.amount = double.Parse(Tools.CleanField(value.ToString())); }
+            set { this.amount = double.Parse(Tools.CleanField(value.ToString(Tools.RetrieveCultureInfoFrench())), Tools.RetrieveCultureInfoFrench()); }
         }
 
         /// <summary>

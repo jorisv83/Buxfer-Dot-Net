@@ -7,6 +7,7 @@
 namespace BuxferLib
 {
     using System;
+    using System.Globalization;
 
     /// <summary>
     /// A general class that provides access to helpful methods
@@ -21,6 +22,15 @@ namespace BuxferLib
         public static string CleanField(string value)
         {
             return value.Trim().Trim(Environment.NewLine.ToCharArray());
+        }
+
+        /// <summary>
+        /// Retrieves a new fr-FR culture info object
+        /// </summary>
+        /// <returns>A new fr-FR culture info instance</returns>
+        public static CultureInfo RetrieveCultureInfoFrench()
+        {
+            return new CultureInfo("fr-FR", true);
         }
     }
 }
