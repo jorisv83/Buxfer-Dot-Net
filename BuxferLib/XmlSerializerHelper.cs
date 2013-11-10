@@ -23,7 +23,7 @@ namespace BuxferLib
         /// <typeparam name="T">The type of the object to serialize</typeparam>
         /// <param name="obj">The object itself</param>
         /// <param name="xmlWriter">A reference to an XML writer instance</param>
-        public static void SerializeObject<T>(T obj, ref XmlWriter xmlWriter)
+        public static void SerializeObject<T>(T obj, XmlWriter xmlWriter)
         {
             XmlSerializer xs = new XmlSerializer(typeof(T));
             XmlSerializerNamespaces xmlSerializerNamespaces = new XmlSerializerNamespaces();
