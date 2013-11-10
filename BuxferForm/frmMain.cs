@@ -64,7 +64,7 @@ namespace BuxferForm
         /// </summary>
         private void RefreshAll()
         {
-            Collection<Account> accounts = this.buxfer.GetAllAccounts();
+            Collection<Account> accounts = this.buxfer.RetrieveAllAccounts();
             this.cbAccounts.DataSource = accounts;
             this.cbAccounts.DisplayMember = "Name";
             this.cbAccounts.ValueMember = "Id";
@@ -81,7 +81,7 @@ namespace BuxferForm
         /// <param name="accountId">The account to look up the transactions for</param>
         private void RefreshGrid(string accountId)
         {
-            Collection<Transaction> transactions = this.buxfer.GetTransactions(accountId);
+            Collection<Transaction> transactions = this.buxfer.RetrieveAllTransactionsFromAccount(accountId);
             this.dgvTransactions.DataSource = transactions;
         }
 

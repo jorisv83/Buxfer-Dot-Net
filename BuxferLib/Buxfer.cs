@@ -103,7 +103,7 @@ namespace BuxferLib
         /// Return a list of all accounts
         /// </summary>
         /// <returns>List of accounts</returns>
-        public Collection<Account> GetAllAccounts()
+        public Collection<Account> RetrieveAllAccounts()
         {
             Collection<Account> accounts = new Collection<Account>();
             string accountResponse = this.GetResponse("accounts.xml?token=" + this.loginToken);
@@ -122,7 +122,7 @@ namespace BuxferLib
         /// <param name="accountId">The account to retrieve the transactions for</param>
         /// <param name="page">The page number, only 25 transactions per page are returned</param>
         /// <returns>A list of transactions</returns>
-        public Collection<Transaction> GetTransactions(string accountId, string page = "1")
+        public Collection<Transaction> RetrieveAllTransactionsFromAccount(string accountId, string page = "1")
         {
             Collection<Transaction> transactions = new Collection<Transaction>();
             string transactionResponse = this.GetResponse("transactions.xml?token=" + this.loginToken + "&accountId=" + accountId + "&page=" + page);
