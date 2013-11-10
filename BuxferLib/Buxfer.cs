@@ -54,7 +54,7 @@ namespace BuxferLib
                 this.serviceClient = new WebClient();
 
                 string loginResponse = this.GetResponse(string.Concat("login.xml?userid=", username, "&password=", password));
-                Login login = XMLSerializer.DeserializeObject<Login>(loginResponse);
+                Login login = XmlSerializerHelper.DeserializeObject<Login>(loginResponse);
                 if (login.Status.ToUpper() == "OK")
                 {
                     this.logonOk = true;
@@ -110,7 +110,7 @@ namespace BuxferLib
             XmlDocument xmlDoc = this.TranslateStringToXmlDoc(accountResponse);
             foreach (XmlElement e in xmlDoc.SelectNodes("/response/accounts/account"))
             {
-                accounts.Add(XMLSerializer.DeserializeObject<Account>(string.Concat("<account>", e.InnerXml, "</account>")));
+                accounts.Add(XmlSerializerHelper.DeserializeObject<Account>(string.Concat("<account>", e.InnerXml, "</account>")));
             }
 
             return accounts;
@@ -129,7 +129,7 @@ namespace BuxferLib
             XmlDocument xmlDoc = this.TranslateStringToXmlDoc(transactionResponse);
             foreach (XmlElement e in xmlDoc.SelectNodes("/response/transactions/transaction"))
             {
-                transactions.Add(XMLSerializer.DeserializeObject<Transaction>(string.Concat("<transaction>", e.InnerXml, "</transaction>")));
+                transactions.Add(XmlSerializerHelper.DeserializeObject<Transaction>(string.Concat("<transaction>", e.InnerXml, "</transaction>")));
             }
 
             return transactions;

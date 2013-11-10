@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="XMLSerializer.cs" company="Jorisv83">
+// <copyright file="XmlSerializerHelper.cs" company="Jorisv83">
 //     Copyright (c) Jorisv83. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
@@ -15,7 +15,7 @@ namespace BuxferLib
     /// <summary>
     /// Class that wraps XML serialization functions into 2 methods
     /// </summary>
-    public class XMLSerializer
+    public class XmlSerializerHelper
     {        
         /// <summary>
         /// Serialize an object into an XML string
