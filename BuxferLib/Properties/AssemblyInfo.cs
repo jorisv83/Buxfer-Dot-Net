@@ -1,16 +1,22 @@
-﻿using System.Reflection;
+﻿//-----------------------------------------------------------------------
+// <copyright file="AssemblyInfo.cs" company="Jorisv83">
+//     Copyright (c) Jorisv83. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Buxfer .NET")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("BuxferLib")]
+[assembly: AssemblyDescription("An assembly to facilitate the communication between the Buxfer website and a .NET application")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Buxfer .NET")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("Jorisv83")]
+[assembly: AssemblyProduct("BuxferLib")]
+[assembly: AssemblyCopyright("Copyright © Jorisv83")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

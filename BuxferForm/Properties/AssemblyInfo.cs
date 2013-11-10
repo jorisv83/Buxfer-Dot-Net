@@ -1,4 +1,10 @@
-﻿using System.Reflection;
+﻿//-----------------------------------------------------------------------
+// <copyright file="AssemblyInfo.cs" company="Jorisv83">
+//     Copyright (c) Jorisv83. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -6,11 +12,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("BuxferForm")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A windows forms application to view and add transactions to Buxfer accounts")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Jorisv83")]
 [assembly: AssemblyProduct("BuxferForm")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCopyright("Copyright © Jorisv83")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

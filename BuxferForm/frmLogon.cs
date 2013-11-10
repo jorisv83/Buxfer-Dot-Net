@@ -1,38 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BuxferLib;
+﻿//-----------------------------------------------------------------------
+// <copyright file="FrmLogon.cs" company="Jorisv83">
+//     Copyright (c) Jorisv83. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace BuxferForm
 {
-    public partial class frmLogon : Form
+    using System;
+    using System.Windows.Forms;
+    using BuxferLib;
+
+    /// <summary>
+    /// Windows form to allow the user to logon to Buxfer
+    /// </summary>
+    public partial class FrmLogon : Form
     {
+        /// <summary>
+        /// Private variable to store our main Buxfer instance
+        /// </summary>
         private Buxfer buxfer;
 
-        public frmLogon()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FrmLogon" /> class
+        /// </summary>
+        public FrmLogon()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
-        private void frmLogon_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Form is loaded
+        /// </summary>
+        /// <param name="sender">THe object that fired the event</param>
+        /// <param name="e">Event arguments</param>
+        private void FrmLogon_Load(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.username != string.Empty)
             {
                 this.txtUsername.Text = Properties.Settings.Default.username;
                 this.txtPassword.Text = Properties.Settings.Default.password;
-                this.cbRememberMe.Checked = true;
+                this.chkRememberMe.Checked = true;
             }
         }
 
-        private void btnLogOn_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Button logon is clicked
+        /// </summary>
+        /// <param name="sender">THe object that fired the event</param>
+        /// <param name="e">Event arguments</param>
+        private void BtnLogOn_Click(object sender, EventArgs e)
         {
-            if (!cbRememberMe.Checked)
+            if (!chkRememberMe.Checked)
             {
                 Properties.Settings.Default.username = string.Empty;
                 Properties.Settings.Default.password = string.Empty;
@@ -45,7 +63,7 @@ namespace BuxferForm
 
                 if (this.buxfer.LogonOk)
                 {
-                    if (cbRememberMe.Checked)
+                    if (chkRememberMe.Checked)
                     {
                         Properties.Settings.Default.username = this.txtUsername.Text;
                         Properties.Settings.Default.password = this.txtPassword.Text;
@@ -53,7 +71,7 @@ namespace BuxferForm
                     }
 
                     this.Hide();
-                    frmMain mainForm = new frmMain(this, buxfer);
+                    FrmMain mainForm = new FrmMain(this, this.buxfer);
                     mainForm.Show();
                 }
                 else
@@ -64,6 +82,7 @@ namespace BuxferForm
                         message += Environment.NewLine;
                         message += this.buxfer.Messages[this.buxfer.Messages.Count - 1].Text;
                     }
+
                     MessageBox.Show(message, "Logon", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -78,16 +97,19 @@ namespace BuxferForm
             }
         }
 
-        private void frmLogon_FormClosing(object sender, FormClosingEventArgs e)
+        /// <summary>
+        /// Form logon is closing
+        /// </summary>
+        /// <param name="sender">THe object that fired the event</param>
+        /// <param name="e">Event arguments</param>
+        private void FrmLogon_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!cbRememberMe.Checked)
+            if (!chkRememberMe.Checked)
             {
                 Properties.Settings.Default.username = string.Empty;
                 Properties.Settings.Default.password = string.Empty;
                 Properties.Settings.Default.Save();
             }
         }
-
-
     }
 }
