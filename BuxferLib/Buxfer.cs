@@ -40,37 +40,37 @@ namespace BuxferLib
         /// <summary>
         /// Indicates if the logon has been successful
         /// </summary>
-        private bool logonOk = false;
+        private bool logOnOk = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Buxfer" /> class
         /// </summary>
-        /// <param name="username">Your buxfer username</param>
+        /// <param name="userName">Your buxfer username</param>
         /// <param name="password">Your buxfer password</param>
-        public Buxfer(string username, string password)
+        public Buxfer(string userName, string password)
         {
             try
             {
                 this.serviceClient = new WebClient();
 
-                string loginResponse = this.GetResponse(string.Concat("login.xml?userid=", username, "&password=", password));
-                Logon login = XmlSerializerHelper.DeserializeObject<Logon>(loginResponse);
+                string loginResponse = this.GetResponse(string.Concat("login.xml?userid=", userName, "&password=", password));
+                LogOn login = XmlSerializerHelper.DeserializeObject<LogOn>(loginResponse);
                 if (login.Status.ToUpper(Tools.RetrieveCultureInfoFrench()) == "OK")
                 {
-                    this.logonOk = true;
+                    this.logOnOk = true;
                     this.loginToken = login.Token;
-                    this.messages.Add(new Message(Message.Category.Info, DateTime.Now, "Login SUCCESS for user: " + username));
+                    this.messages.Add(new Message(Message.Category.Info, DateTime.Now, "Login SUCCESS for user: " + userName));
                 }
                 else
                 {
                     this.loginToken = string.Empty;
-                    this.messages.Add(new Message(Message.Category.Error, DateTime.Now, "Login FAILED for user: " + username + "\nStatus was: " + login.Status));
+                    this.messages.Add(new Message(Message.Category.Error, DateTime.Now, "Login FAILED for user: " + userName + "\nStatus was: " + login.Status));
                 }
             }
             catch (Exception ex)
             {
                 this.loginToken = string.Empty;
-                this.messages.Add(new Message(Message.Category.Error, DateTime.Now, "Login FAILED for user: " + username + "\nException: " + ex.Message));
+                this.messages.Add(new Message(Message.Category.Error, DateTime.Now, "Login FAILED for user: " + userName + "\nException: " + ex.Message));
             }
         }
 
@@ -86,9 +86,9 @@ namespace BuxferLib
         /// <summary>
         /// Gets a value indicating whether the logon has been successful
         /// </summary>
-        public bool LogonOk
+        public bool LogOnOk
         {
-            get { return this.logonOk; }
+            get { return this.logOnOk; }
         }
 
         /// <summary>

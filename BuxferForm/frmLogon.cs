@@ -61,7 +61,7 @@ namespace BuxferForm
             {
                 this.buxfer = new Buxfer(this.txtUsername.Text, this.txtPassword.Text);
 
-                if (this.buxfer.LogonOk)
+                if (this.buxfer.LogOnOk)
                 {
                     if (chkRememberMe.Checked)
                     {

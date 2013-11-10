@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Logon.cs" company="Jorisv83">
+// <copyright file="LogOn.cs" company="Jorisv83">
 //     Copyright (c) Jorisv83. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
@@ -13,7 +13,7 @@ namespace BuxferLib.BuxferObjects
     /// Response object for the login call
     /// </summary>
     [XmlRoot("response")]
-    public class Logon
+    public class LogOn
     {
         /// <summary>
         /// THe status of the request, OK or Error
@@ -36,9 +36,9 @@ namespace BuxferLib.BuxferObjects
         private string requestId;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Logon" /> class
+        /// Initializes a new instance of the <see cref="LogOn" /> class
         /// </summary>
-        public Logon()
+        public LogOn()
         {
         }
 
