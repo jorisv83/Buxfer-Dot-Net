@@ -12,7 +12,7 @@ namespace BuxferLib
     /// <summary>
     /// A general class that provides access to helpful methods
     /// </summary>
-    public class Tools
+    public static class Tools
     {
         /// <summary>
         /// Clean a string and return it 

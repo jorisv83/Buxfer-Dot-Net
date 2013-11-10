@@ -15,7 +15,7 @@ namespace BuxferLib
     /// <summary>
     /// Class that wraps XML serialization functions into 2 methods
     /// </summary>
-    public class XmlSerializerHelper
+    public static class XmlSerializerHelper
     {        
         /// <summary>
         /// Serialize an object into an XML string
