@@ -27,7 +27,6 @@ namespace BuxferLib
         {
             try
             {
-                MemoryStream memoryStream = new MemoryStream();
                 XmlSerializer xs = new XmlSerializer(typeof(T));
                 XmlSerializerNamespaces xmlSerializerNamespaces = new XmlSerializerNamespaces();
 
@@ -74,7 +73,6 @@ namespace BuxferLib
         {
             XmlSerializer xs = new XmlSerializer(typeof(T));
             MemoryStream memoryStream = new MemoryStream(StringToUTF8ByteArray(xml));
-            XmlTextWriter xmlTextWriter = new XmlTextWriter(memoryStream, Encoding.UTF8);
             return (T)xs.Deserialize(memoryStream);
         }
 
