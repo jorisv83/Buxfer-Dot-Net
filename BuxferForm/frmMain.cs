@@ -27,6 +27,11 @@ namespace BuxferForm
         private Buxfer buxfer;
 
         /// <summary>
+        /// Private variable that holds the current selected account
+        /// </summary>
+        private Account currentAccount;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="FrmMain" /> class
         /// </summary>
         /// <param name="logOnForm">The logon form</param>
@@ -93,12 +98,25 @@ namespace BuxferForm
         {
             if (cbAccounts.SelectedValue is Account)
             {
+                this.currentAccount = cbAccounts.SelectedValue as Account;
                 this.RefreshGrid((cbAccounts.SelectedValue as Account).Id);
             }
             else if (cbAccounts.SelectedValue is string)
             {
+                this.currentAccount = this.buxfer.RetrieveAccount(cbAccounts.SelectedValue.ToString());
                 this.RefreshGrid(cbAccounts.SelectedValue.ToString());
             }
+        }
+
+        /// <summary>
+        /// Open a new add transaction form
+        /// </summary>
+        /// <param name="sender">The object that fired the event</param>
+        /// <param name="e">Event arguments</param>
+        private void BtnAddTransaction_Click(object sender, EventArgs e)
+        {
+            FrmAddTransaction frmAddTransaction = new FrmAddTransaction(this.buxfer, this.currentAccount);
+            frmAddTransaction.ShowDialog();
         }
     }
 }

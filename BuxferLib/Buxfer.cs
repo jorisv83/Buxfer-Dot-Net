@@ -11,6 +11,7 @@ namespace BuxferLib
 {
     using System.Collections.ObjectModel;
     using System.Net;
+    using System.Web;
     using System.Xml;
 
     /// <summary>
@@ -118,6 +119,24 @@ namespace BuxferLib
         }
 
         /// <summary>
+        /// Search for a specific account
+        /// </summary>
+        /// <param name="accountId">The account id to look for</param>
+        /// <returns>An accounts</returns>
+        public Account RetrieveAccount(string accountId)
+        {
+            foreach (Account a in this.RetrieveAllAccounts())
+            {
+                if (a.Id == accountId)
+                {
+                    return a;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Return a list of all transactions from a given account and an optional page
         /// </summary>
         /// <param name="accountId">The account to retrieve the transactions for</param>
@@ -144,6 +163,24 @@ namespace BuxferLib
         public Collection<Transaction> RetrieveAllTransactionsFromAccount(string accountId)
         {
             return this.RetrieveAllTransactionsFromAccount(accountId, "1");
+        }
+
+        /// <summary>
+        /// Add a transaction to Buxfer
+        /// </summary>
+        /// <param name="transaction">The transaction to add</param>
+        public void AddTransaction(Transaction transaction)
+        {
+            //DESCRIPTION [+]AMOUNT [TAGS:<tags>] [ACCT:<accounts>] [DATE:<date>] [STATUS:<status>]
+
+            string postData = string.Concat("format=sms&text=",
+                transaction.Description, " ", "+",transaction.Amount.ToString(Tools.RetrieveCultureInfoFrench()),
+                //" TAGS:", transaction.Tags,
+                " acct:", transaction.AccountId,
+                "&token=" + this.loginToken
+                );
+            //" DATE:", transaction.Date);
+            string response = this.PostResponse("add_transaction.json", HttpUtility.UrlEncode(postData));
         }
 
         /// <summary>
@@ -203,7 +240,7 @@ namespace BuxferLib
         /// <returns>The response</returns>
         private string PostResponse(string urlPart, string data)
         {
-            this.serviceClient.Headers["Content-type"] = "text/xml";
+            //this.serviceClient.Headers["Content-type"] = "text/xml";
             return this.serviceClient.UploadString(new Uri(string.Concat(this.baseUrl, urlPart)), "POST", data);
         }
     }

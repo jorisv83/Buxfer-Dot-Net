@@ -34,6 +34,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbAccounts = new System.Windows.Forms.ComboBox();
+            this.btnAddTransaction = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnAddTransaction);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cbAccounts);
             this.groupBox2.Location = new System.Drawing.Point(15, 12);
@@ -95,6 +97,16 @@
             this.cbAccounts.Size = new System.Drawing.Size(288, 21);
             this.cbAccounts.TabIndex = 0;
             this.cbAccounts.SelectedIndexChanged += new System.EventHandler(this.CbAccounts_SelectedIndexChanged);
+            // 
+            // btnAddTransaction
+            // 
+            this.btnAddTransaction.Location = new System.Drawing.Point(426, 21);
+            this.btnAddTransaction.Name = "btnAddTransaction";
+            this.btnAddTransaction.Size = new System.Drawing.Size(139, 23);
+            this.btnAddTransaction.TabIndex = 2;
+            this.btnAddTransaction.Text = "Add new transaction";
+            this.btnAddTransaction.UseVisualStyleBackColor = true;
+            this.btnAddTransaction.Click += new System.EventHandler(this.BtnAddTransaction_Click);
             // 
             // FrmMain
             // 
@@ -124,5 +136,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbAccounts;
+        private System.Windows.Forms.Button btnAddTransaction;
     }
 }

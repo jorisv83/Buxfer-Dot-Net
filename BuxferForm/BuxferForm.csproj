@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAddTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddTransaction.Designer.cs">
+      <DependentUpon>FrmAddTransaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogOn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddTransaction.resx">
+      <DependentUpon>FrmAddTransaction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogOn.resx">
       <DependentUpon>FrmLogOn.cs</DependentUpon>
     </EmbeddedResource>
